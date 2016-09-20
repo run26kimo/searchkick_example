@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 gem 'rails', '4.2.7.1'
 gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
@@ -12,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'slim-rails'
 gem 'bootstrap-generators', '~> 3.3.4'
+gem 'annotate'
 
 group :development, :test do
   gem 'byebug'
