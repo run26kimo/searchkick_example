@@ -1,0 +1,34 @@
+.page-header
+  = link_to products_path, class: 'btn btn-default' do 
+    span.glyphicon.glyphicon-list-alt
+    |  Back 
+  = link_to edit_product_path(@product), class: 'btn btn-primary' do 
+    span.glyphicon.glyphicon-pencil
+    |  Edit 
+  h1
+    | Show product
+dl.dl-horizontal
+  dt
+    | Name:
+  dd
+    = @product.name
+  dt
+    | Desc:
+  dd
+    = @product.desc
+  dt
+    | Category:
+  dd
+    = @product.category_id
+  dt
+    | Image:
+  dd
+    = @product.image
+  dt
+    | Price:
+  dd
+    = @product.price
+  dt
+    | Published:
+  dd
+    = @product.published

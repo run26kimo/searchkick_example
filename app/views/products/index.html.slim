@@ -1,0 +1,47 @@
+.page-header
+  = link_to new_product_path, class: 'btn btn-primary' do 
+    span.glyphicon.glyphicon-plus
+    |  New Product
+  h1
+    | Listing products
+
+.table-responsive
+  table.table.table-striped.table-bordered.table-hover
+    thead
+      tr
+        th
+          | Name
+        th
+          | Desc
+        th
+          | Category
+        th
+          | Image
+        th
+          | Price
+        th
+          | Published
+        th
+        th
+        th
+    tbody
+      - @products.each do | product |
+        tr
+          td
+            = product.name
+          td
+            = product.desc
+          td
+            = product.category_id
+          td
+            = product.image
+          td
+            = product.price
+          td
+            = product.published
+          td
+            = link_to 'Show', product
+          td
+            = link_to 'Edit', edit_product_path(product) 
+          td
+            = link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } 

@@ -1,0 +1,39 @@
+= form_for(@product, html: { class: "form-horizontal", role: "form" }) do |f|
+  - if @product.errors.any?
+    .alert.alert-danger.alert-dismissable role="alert"
+      button.close type="button" data-dismiss="alert"
+        span aria-hidden="true"
+          | &times;
+        span.sr-only
+          | Close
+      h4= "#{pluralize(@product.errors.count,"error")} prohibited this product from being saved:"
+      ul
+        - @product.errors.full_messages.each do |msg|
+          li= msg
+  .form-group
+    = f.label :name, class: "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :name, class: "form-control"
+  .form-group
+    = f.label :desc, class: "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_area :desc, class: "form-control"
+  .form-group
+    = f.label :category_id, class: "col-sm-2 control-label"
+    .col-sm-10
+      = f.number_field :category_id, class: "form-control"
+  .form-group
+    = f.label :image, class: "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :image, class: "form-control"
+  .form-group
+    = f.label :price, class: "col-sm-2 control-label"
+    .col-sm-10
+      = f.number_field :price, class: "form-control"
+  .form-group
+    = f.label :published, class: "col-sm-2 control-label"
+    .col-sm-10
+      = f.check_box :published, class: "form-control"
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit class: "btn btn-primary"
