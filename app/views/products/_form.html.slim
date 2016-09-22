@@ -21,7 +21,7 @@
   .form-group
     = f.label :category_id, class: "col-sm-2 control-label"
     .col-sm-10
-      = f.number_field :category_id, class: "form-control"
+      = f.collection_select :category_id, Category.all, :id, :name, { prompt: true }, { class: "form-control" }
   .form-group
     = f.label :image, class: "col-sm-2 control-label"
     .col-sm-10

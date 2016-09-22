@@ -24,14 +24,14 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          = link_to "Searchkick Example", "#", class: "navbar-brand"
+          = link_to "Searchkick Example", root_path, class: "navbar-brand"
         #navbar.collapse.navbar-collapse
           ul.nav.navbar-nav
             li
               a href="#about"
                 | Search
-            li.active
-              = link_to 'Products', products_path
+            li = link_to 'Products', products_path
+            li = link_to 'Categories', categories_path
     .container
       - flash.each do |name, msg|
         = content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do

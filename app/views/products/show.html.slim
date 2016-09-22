@@ -1,10 +1,10 @@
 .page-header
-  = link_to products_path, class: 'btn btn-default' do 
+  = link_to products_path, class: 'btn btn-default' do
     span.glyphicon.glyphicon-list-alt
-    |  Back 
-  = link_to edit_product_path(@product), class: 'btn btn-primary' do 
+    |  Back
+  = link_to edit_product_path(@product), class: 'btn btn-primary' do
     span.glyphicon.glyphicon-pencil
-    |  Edit 
+    |  Edit
   h1
     | Show product
 dl.dl-horizontal
@@ -19,7 +19,7 @@ dl.dl-horizontal
   dt
     | Category:
   dd
-    = @product.category_id
+    = @product.category.name
   dt
     | Image:
   dd
