@@ -14,6 +14,7 @@ gem 'bootstrap-generators', '~> 3.3.4'
 gem 'bootstrap-kaminari-views'
 gem 'annotate'
 gem 'kaminari'
+gem 'ffaker'
 
 gem 'searchkick'
 
@@ -24,5 +25,4 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
-  gem 'ffaker'
 end
