@@ -26,6 +26,8 @@ html
             span.icon-bar
           = link_to "Searchkick Example", root_path, class: "navbar-brand"
         #navbar.collapse.navbar-collapse
+          .pull-right
+            span Page Rendered in #{sprintf('%.3f', (Time.now.to_f - @start_time) )} seconds
           ul.nav.navbar-nav
             li = link_to 'Products', products_path
             li = link_to 'Categories', categories_path
