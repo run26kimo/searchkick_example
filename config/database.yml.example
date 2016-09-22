@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: searchkick_development
+  pool: 5
+  username: commandp
+  password:
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  database: searchkick_test
+  pool: 5
+  username: commandp
+  password:
+  host: localhost
