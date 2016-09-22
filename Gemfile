@@ -13,6 +13,8 @@ gem 'slim-rails'
 gem 'bootstrap-generators', '~> 3.3.4'
 gem 'annotate'
 
+gem 'searchkick'
+
 group :development, :test do
   gem 'byebug'
 end
@@ -20,4 +22,5 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'ffaker'
 end
