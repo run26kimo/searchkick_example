@@ -4,7 +4,18 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = Product.order('created_at DESC').page(params[:page]).per(10)
+  end
+
+  def search
+    search_params = { page: params[:page],
+                      per_page: 10,
+                      suggest: true,
+                      highlight: { tag: "<mark>" },
+                      aggs: [:category_name] 
+                    }
+    search_params.merge!(where: { category_name: params[:cn] }) if params[:cn].present?
+    @products = Product.search(params[:q], search_params)
   end
 
   # GET /products/1

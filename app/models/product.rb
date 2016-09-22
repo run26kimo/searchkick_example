@@ -14,6 +14,19 @@
 #
 
 class Product < ActiveRecord::Base
-  searchkick
+  searchkick searchable: [:name, :desc, :category_name],
+             suggest: [:name],
+             highlight: [:name, :desc, :category_name]
+
   belongs_to :category
+
+  scope :search_import, -> { includes(:category) }
+
+  def search_data
+    {
+      name: name,
+      category_name: category.name,
+      desc: desc
+    }
+  end
 end

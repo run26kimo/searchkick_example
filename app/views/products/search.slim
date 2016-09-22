@@ -9,7 +9,18 @@
 
 div style="margin-top: 50px;"
 .row
-  .col-md-12
+  - is_aggs = @products.try(:aggs).present?
+  - if is_aggs
+    .col-md-2
+      | Category
+      ul
+        - @products.aggs['category_name']['buckets'].each do |agg|
+          - cn = agg['key']
+          li
+            = link_to cn, search_path(q: params[:q], cn: cn)
+            = "(#{agg['doc_count']})"
+
+  div class=(is_aggs ? '.col-md-10' : '.col-md-12')
     .table-responsive
       table.table.table-striped.table-bordered.table-hover
         thead
@@ -30,13 +41,15 @@ div style="margin-top: 50px;"
             th
             th
         tbody
-          - @products.each do | product |
+          /- @products.each do | product |
+          - @products.with_details.each do |product, _|
+            - highlight = _[:highlight] || {}
             tr
               td = product.id
               td
-                = product.name
+                = highlight[:name].try(:html_safe) || product.name
               td
-                = product.desc
+                = highlight[:desc].try(:html_safe) || product.desc
               td
                 = product.category.name
               td

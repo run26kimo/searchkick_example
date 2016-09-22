@@ -1,0 +1,10 @@
+.row
+  .col-md-12
+    form action='/search' method='get'
+      .input-group
+        span class="input-group-addon" id="search"
+          span class="glyphicon glyphicon-search" aria-hidden="true"
+        input type="search" class="form-control" placeholder="Search.." aria-describedby="search" name="q" value=(params[:q] if params[:q].present?)
+    - if products.try(:suggestions).present?
+      | 你是要搜尋?：
+      = products.suggestions.map{ |s| link_to s, search_path(q: s) }.join(', ').html_safe

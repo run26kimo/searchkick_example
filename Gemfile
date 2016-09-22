@@ -11,7 +11,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'slim-rails'
 gem 'bootstrap-generators', '~> 3.3.4'
+gem 'bootstrap-kaminari-views'
 gem 'annotate'
+gem 'kaminari'
 
 gem 'searchkick'
 
