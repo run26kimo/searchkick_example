@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
                       per_page: 10,
                       suggest: true,
                       highlight: { tag: "<mark>" },
-                      aggs: [:category_name] 
+                      aggs: [:category_name]
                     }
     search_params.merge!(where: { category_name: params[:cn] }) if params[:cn].present?
     @products = Product.search(params[:q], search_params)

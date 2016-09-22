@@ -16,7 +16,8 @@
 class Product < ActiveRecord::Base
   searchkick searchable: [:name, :desc, :category_name],
              suggest: [:name],
-             highlight: [:name, :desc, :category_name]
+             highlight: [:name, :desc],
+             synonyms: [["apple", "蘋果"], ["asus", "華碩"]]
 
   belongs_to :category
 
